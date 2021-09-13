@@ -6,9 +6,10 @@
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/header.xml" value="0.12763157894736843" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/ripple_effect.xml" value="0.12763157894736843" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_chat.xml" value="0.1" />
-        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_settings.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
       </map>
     </option>
   </component>

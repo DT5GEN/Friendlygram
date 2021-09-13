@@ -1,11 +1,10 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="Theme.FriendlygramLight" parent="MaterialBaseBaseTheme">
-
+    <style name="Theme.FriendlygramLight" parent="MaterialDrawerTheme">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:colorBackground">@color/colorAccent</item>
 
@@ -22,47 +21,53 @@
         <item name="material_drawer_header_selection_text">@color/material_drawer_header_selection_text</item>
         <item name="material_drawer_header_selection_subtext">@color/material_drawer_dark_header_selection_subtext</item>
         <item name="material_drawer_legacy_style">false</item> <!-- Enables legacy Material 1 style -->
-
     </style>
 
-    <!-- Base application theme. Night -->
-    <style name="Theme.FriendlygramDark" parent="MaterialBaseBaseTheme">
-
-        <!-- Customize your theme here. -->
-        <!-- TODO Тёмная тема-->
-
-
+    <style name="AppThemeDark" parent="MaterialDrawerTheme">
+        <!--TODO Темная тема-->
     </style>
 
-    <style name="setting_buttons">
+    <style name="settingsButtons">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_marginTop">@dimen/vertical_margin</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/ripple_effect</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+
     </style>
 
-    <style name="normal_text">
+    <style name="normalText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/horizontal_margin</item>
-        <item name="android:textSize">@dimen/normalTextSize</item>
+        <item name="android:textSize">@dimen/normalText</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
-    <style name="small_text">
+    <style name="smallText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">@dimen/horizontal_margin</item>
-        <item name="android:textSize">@dimen/smallTextSize</item>
-        <item name="android:textColor">@color/colorGray</item>
+        <item name="android:textSize">@dimen/smallText</item>
+        <item name="android:textColor">@color/colorGrey</item>
     </style>
 
     <style name="separator">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:background">@color/colorGray</item>
+        <item name="android:background">@color/colorGrey</item>
         <item name="android:layout_marginStart">@dimen/horizontal_margin</item>
         <item name="android:layout_marginEnd">@dimen/horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/vertical_margin</item>
         <item name="android:layout_height">1dp</item>
     </style>
+
+    <style name="mainToolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
 
 </resources>
