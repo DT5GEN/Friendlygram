@@ -1,8 +1,10 @@
 package com.example.friendlygram
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
+import com.example.friendlygram.activities.RegisteActivity
 import com.example.friendlygram.databinding.ActivityMainBinding
 import com.example.friendlygram.ui.fragments.ChatFragment
 import com.example.friendlygram.ui.objects.AppDrawer
@@ -29,10 +31,22 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        setSupportActionBar(mToolbar)
-        mAppDrawer.create()
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.dataContainer, ChatFragment()).commit()
+
+        if(false){
+
+            setSupportActionBar(mToolbar)
+            mAppDrawer.create()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.dataContainer, ChatFragment()).commit()
+
+
+        } else {
+
+            val intent = Intent(this,RegisteActivity::class.java)
+            startActivity(intent)
+
+        }
+
 
     }
 

@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FriendlygramLight">
         <activity
+            android:name=".activities.RegisteActivity"
+            android:windowSoftInputMode="stateVisible|adjustResize"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

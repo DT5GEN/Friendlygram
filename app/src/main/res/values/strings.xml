@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Telegram</string>
+    <string name="app_name">Friendlygram</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -14,4 +14,10 @@
     <string name="settings_label_bio">Напишите немного о себе</string>
     <string name="settings_menu_change_name">  изменить имя</string>
     <string name="settings_menu_exit">выйти из аккаунта</string>
+    <string name="cd_register_image">register_image</string>
+    <string name="register_text_enter_code">Введите код</string>
+    <string name="register_text_we_SEND">Мы отправили SMS с кодом проверки на Ваш телефон</string>
+    <string name="register_hint_default_code">- - - - - -</string>
+    <string name="register_title_your_phone">Ваш телефон</string>
+    <string name="register_toast_enter_phone">Введите номер телефона</string>
 </resources>

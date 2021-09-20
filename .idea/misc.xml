@@ -8,7 +8,10 @@
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/ripple_effect.xml" value="0.12763157894736843" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/activity_registe.xml" value="0.21672240802675585" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_chat.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_enter_code.xml" value="0.16" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_enter_phone_number.xml" value="0.21672240802675585" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_settings.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/menu/settings_action_menu.xml" value="0.21672240802675585" />
       </map>
