@@ -8,6 +8,8 @@ import com.example.friendlygram.activities.RegisteActivity
 import com.example.friendlygram.databinding.ActivityMainBinding
 import com.example.friendlygram.ui.fragments.ChatFragment
 import com.example.friendlygram.ui.objects.AppDrawer
+import com.example.friendlygram.utitits.replaceActivity
+import com.example.friendlygram.utitits.replaceFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,18 +34,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
 
-        if(false){
+        if(true){
 
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.dataContainer, ChatFragment()).commit()
+            replaceFragment(ChatFragment())
 
 
         } else {
-
-            val intent = Intent(this,RegisteActivity::class.java)
-            startActivity(intent)
+            replaceActivity(RegisteActivity())
 
         }
 

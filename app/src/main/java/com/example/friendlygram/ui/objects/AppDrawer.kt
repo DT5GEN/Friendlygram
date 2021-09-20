@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.friendlygram.R
 import com.example.friendlygram.ui.fragments.SettingsFragment
+import com.example.friendlygram.utitits.replaceFragment
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -90,9 +91,7 @@ class AppDrawer(val mainActivity:AppCompatActivity,val toolbar: Toolbar) {
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     when (position) {
-                        7 -> mainActivity.supportFragmentManager.beginTransaction()
-                            .addToBackStack(null)
-                            .replace(R.id.dataContainer, SettingsFragment()).commit()
+                        7 -> mainActivity.replaceFragment(SettingsFragment())
                     }
                     return false
                 }
@@ -108,7 +107,7 @@ class AppDrawer(val mainActivity:AppCompatActivity,val toolbar: Toolbar) {
             .withHeaderBackground(R.drawable.header)
             .addProfiles(
                 ProfileDrawerItem().withName("COINGEN")
-                    .withEmail("+79111111111")
+                    .withEmail("+79155824382")
             ).build()
     }
 }
