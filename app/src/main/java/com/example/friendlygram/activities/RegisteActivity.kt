@@ -1,6 +1,8 @@
 package com.example.friendlygram.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.view.Menu
 import android.widget.Toolbar
 import com.example.friendlygram.R
 import com.example.friendlygram.databinding.ActivityRegisteBinding
@@ -11,6 +13,7 @@ class RegisteActivity : AppCompatActivity() {
 
     private lateinit var mBinding:ActivityRegisteBinding
     private lateinit var mToolbar: androidx.appcompat.widget.Toolbar
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

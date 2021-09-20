@@ -22,15 +22,11 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
 
         if (register_input_phone_number.text.toString().isEmpty()) {
 
-            Toast.makeText(
-                activity,
-                getString(R.string.register_toast_enter_phone),
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(activity,getString(R.string.register_toast_enter_phone),Toast.LENGTH_SHORT).show()
 
         } else {
-            fragmentManager?.beginTransaction()
-                ?.replace(R.id.registerDataContainer, EnterCodeFragment())
+            activity?.supportFragmentManager?.beginTransaction()
+                ?.replace(R.id.registerDataContainer,EnterCodeFragment())
                 ?.addToBackStack(null)
                 ?.commit()
 
@@ -40,3 +36,4 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
     }
 
 }
+
