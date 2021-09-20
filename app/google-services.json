@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "719166891107",
+    "project_id": "friendlygram-eb37d",
+    "storage_bucket": "friendlygram-eb37d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719166891107:android:b1ad4e7b985fbb05410456",
+        "android_client_info": {
+          "package_name": "com.example.friendlygram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719166891107-5thblarsmlcrpvgcvdsfcaphghiu1vrq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdxWxskMH5kGEA6TqmpYH4GVl7wPqx8xw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719166891107-5thblarsmlcrpvgcvdsfcaphghiu1vrq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
