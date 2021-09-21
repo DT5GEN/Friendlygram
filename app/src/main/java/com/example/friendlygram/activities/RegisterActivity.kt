@@ -8,11 +8,12 @@ import android.widget.Toolbar
 import com.example.friendlygram.R
 import com.example.friendlygram.databinding.ActivityRegisteBinding
 import com.example.friendlygram.ui.fragments.EnterPhoneNumberFragment
+import com.example.friendlygram.utitits.initFirebase
 import com.example.friendlygram.utitits.replaceActivity
 import com.example.friendlygram.utitits.replaceFragment
 
 
-class RegisteActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityRegisteBinding
     private lateinit var mToolbar: androidx.appcompat.widget.Toolbar
@@ -22,6 +23,8 @@ class RegisteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityRegisteBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
+        initFirebase()
+
     }
 
     override fun onStart() {

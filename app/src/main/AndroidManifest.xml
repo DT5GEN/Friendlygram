@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FriendlygramLight">
         <activity
-            android:name=".activities.RegisteActivity"
+            android:name=".activities.RegisterActivity"
             android:windowSoftInputMode="stateVisible|adjustResize"
             android:exported="true" />
         <activity

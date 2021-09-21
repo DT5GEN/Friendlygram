@@ -5,8 +5,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.friendlygram.R
-import com.example.friendlygram.activities.RegisteActivity
-import com.example.friendlygram.ui.fragments.ChatFragment
 
 fun Fragment.showToast( message:String){
     Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()

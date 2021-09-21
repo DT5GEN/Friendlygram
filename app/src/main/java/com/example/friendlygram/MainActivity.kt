@@ -1,17 +1,16 @@
 package com.example.friendlygram
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
-import com.example.friendlygram.activities.RegisteActivity
+import com.example.friendlygram.activities.RegisterActivity
 import com.example.friendlygram.databinding.ActivityMainBinding
 import com.example.friendlygram.ui.fragments.ChatFragment
 import com.example.friendlygram.ui.objects.AppDrawer
 import com.example.friendlygram.utitits.AUTH
+import com.example.friendlygram.utitits.initFirebase
 import com.example.friendlygram.utitits.replaceActivity
 import com.example.friendlygram.utitits.replaceFragment
-import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
 
         } else {
-            replaceActivity(RegisteActivity())
+            replaceActivity(RegisterActivity())
 
         }
 
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this,mToolbar)
-        AUTH = FirebaseAuth.getInstance()
+        initFirebase()
 
     }
 }

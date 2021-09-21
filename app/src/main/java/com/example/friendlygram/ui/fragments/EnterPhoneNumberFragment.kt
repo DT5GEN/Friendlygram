@@ -3,13 +3,12 @@ package com.example.friendlygram.ui.fragments
 import androidx.fragment.app.Fragment
 import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
-import com.example.friendlygram.activities.RegisteActivity
+import com.example.friendlygram.activities.RegisterActivity
 import com.example.friendlygram.utitits.AUTH
 import com.example.friendlygram.utitits.replaceActivity
 import com.example.friendlygram.utitits.replaceFragment
 import com.example.friendlygram.utitits.showToast
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.android.synthetic.main.fragment_enter_phone_number.*
@@ -28,7 +27,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
                 AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
                     if (task.isSuccessful){
                         showToast("Добро пожаловать")
-                        (activity as RegisteActivity).replaceActivity(MainActivity())
+                        (activity as RegisterActivity).replaceActivity(MainActivity())
                     } else showToast(task.exception?.message.toString())
 
                 }
@@ -62,7 +61,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
           mPhoneNumber,
             60,
             TimeUnit.SECONDS,
-            activity as RegisteActivity,
+            activity as RegisterActivity,
             mCallback
         )
     }

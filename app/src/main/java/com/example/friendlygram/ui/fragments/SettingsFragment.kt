@@ -5,7 +5,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
-import com.example.friendlygram.activities.RegisteActivity
+import com.example.friendlygram.activities.RegisterActivity
 import com.example.friendlygram.utitits.AUTH
 import com.example.friendlygram.utitits.replaceActivity
 
@@ -26,7 +26,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         when (item.itemId){
             R.id.settings_menu_exit -> {
                 AUTH.signOut()
-                (activity as MainActivity).replaceActivity(RegisteActivity())
+                (activity as MainActivity).replaceActivity(RegisterActivity())
             }
         }
         return true
