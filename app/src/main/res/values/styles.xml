@@ -31,10 +31,6 @@
         <item name="material_drawer_legacy_style">false  </item> <!-- Enables legacy Material 1 style -->
     </style>
 
-    <style name="AppThemeDark" parent="MaterialDrawerTheme">
-        <!--TODO Темная тема-->
-    </style>
-
     <style name="actionMenu" parent="Theme.AppCompat.Light">
         <item name="background">@color/colorAccent</item>
         <item name="actionMenuTextColor">@color/colorBlack </item>
@@ -74,13 +70,6 @@
         <item name="android:layout_marginEnd">@dimen/horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/vertical_margin</item>
         <item name="android:layout_height">1dp</item>
-    </style>
-
-    <style name="mainToolbar">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="android:background">@color/colorPrimary</item>
-        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
     </style>
 
     <style name="editText">

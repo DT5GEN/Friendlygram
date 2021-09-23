@@ -1,12 +1,4 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="Friendlygram" parent="MaterialBaseBaseTheme.Light">
-
-        <!-- Customize your theme here. -->
-
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
 </resources>

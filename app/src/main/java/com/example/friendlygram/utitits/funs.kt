@@ -1,10 +1,14 @@
 package com.example.friendlygram.utitits
 
 import android.content.Intent
+import android.graphics.Color
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.friendlygram.R
+import com.google.android.material.snackbar.Snackbar
 
 fun Fragment.showToast( message:String){
     Toast.makeText(this.context,message,Toast.LENGTH_SHORT).show()
