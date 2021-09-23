@@ -1,33 +1,42 @@
 {
   "project_info": {
-    "project_number": "719166891107",
-    "project_id": "friendlygram-eb37d",
-    "storage_bucket": "friendlygram-eb37d.appspot.com"
+    "project_number": "261714780464",
+    "firebase_url": "https://friendlygram-7d7e9-default-rtdb.firebaseio.com",
+    "project_id": "friendlygram-7d7e9",
+    "storage_bucket": "friendlygram-7d7e9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:719166891107:android:b1ad4e7b985fbb05410456",
+        "mobilesdk_app_id": "1:261714780464:android:63dbffa3b23ec1a948a8f5",
         "android_client_info": {
           "package_name": "com.example.friendlygram"
         }
       },
       "oauth_client": [
         {
-          "client_id": "719166891107-5thblarsmlcrpvgcvdsfcaphghiu1vrq.apps.googleusercontent.com",
+          "client_id": "261714780464-afn991uo31dutisvvlp1sqnu2op4a1lo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.friendlygram",
+            "certificate_hash": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+          }
+        },
+        {
+          "client_id": "261714780464-rlqirjl7b1u8208ib0oa7o1uq9934gsh.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCdxWxskMH5kGEA6TqmpYH4GVl7wPqx8xw"
+          "current_key": "AIzaSyBv0jHyIW8Aw-k7puMfUlbznvPl-iz5ql4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "719166891107-5thblarsmlcrpvgcvdsfcaphghiu1vrq.apps.googleusercontent.com",
+              "client_id": "261714780464-rlqirjl7b1u8208ib0oa7o1uq9934gsh.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
