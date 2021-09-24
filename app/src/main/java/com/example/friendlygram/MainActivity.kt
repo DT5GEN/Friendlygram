@@ -5,12 +5,13 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.example.friendlygram.activities.RegisterActivity
 import com.example.friendlygram.databinding.ActivityMainBinding
+import com.example.friendlygram.models.User
 import com.example.friendlygram.ui.fragments.ChatFragment
 import com.example.friendlygram.ui.objects.AppDrawer
-import com.example.friendlygram.utitits.AUTH
-import com.example.friendlygram.utitits.initFirebase
-import com.example.friendlygram.utitits.replaceActivity
-import com.example.friendlygram.utitits.replaceFragment
+import com.example.friendlygram.utitits.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,5 +59,21 @@ class MainActivity : AppCompatActivity() {
         mAppDrawer = AppDrawer(this,mToolbar)
         initFirebase()
 
+
+        initUser()
+
     }
+
+    private fun initUser() {
+        REF_DATABASE_ROOT.child(NODE_USERS).child(UID)
+            .addListenerForSingleValueEvent(AppValueEventListener{
+                USER = it.getValue(User::class.java)?:User()
+            }
+
+
+            )
+
+    }
+
+
 }
