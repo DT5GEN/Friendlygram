@@ -8,6 +8,7 @@ import com.example.friendlygram.R
 import com.example.friendlygram.activities.RegisterActivity
 import com.example.friendlygram.utitits.AUTH
 import com.example.friendlygram.utitits.replaceActivity
+import com.example.friendlygram.utitits.replaceFragment
 
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
@@ -28,6 +29,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
                 AUTH.signOut()
                 (activity as MainActivity).replaceActivity(RegisterActivity())
             }
+            R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
         return true
     }
