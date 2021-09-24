@@ -9,6 +9,8 @@
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/ripple_effect.xml" value="0.12763157894736843" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/activity_registe.xml" value="0.21672240802675585" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_base_change.xml" value="0.11148648648648649" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_change_bio.xml" value="0.22" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_change_name.xml" value="0.21041666666666667" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_change_username.xml" value="0.21041666666666667" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_chat.xml" value="0.1" />
