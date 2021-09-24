@@ -7,8 +7,10 @@ import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
 import com.example.friendlygram.activities.RegisterActivity
 import com.example.friendlygram.utitits.AUTH
+import com.example.friendlygram.utitits.USER
 import com.example.friendlygram.utitits.replaceActivity
 import com.example.friendlygram.utitits.replaceFragment
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 
 class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
@@ -17,6 +19,18 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
     override fun onResume() {
         super.onResume()
         setHasOptionsMenu(true)
+
+        initFields()
+
+    }
+
+    private fun initFields() {
+        settings_bio.text = USER.bio
+        settings_full_name.text = USER.fullname
+        settings_phone_number.text = USER.phone
+        settings_status.text = USER.status
+        settings_username.text = USER.username
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
