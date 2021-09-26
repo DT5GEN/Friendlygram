@@ -4,10 +4,7 @@ import androidx.fragment.app.Fragment
 import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
 import com.example.friendlygram.activities.RegisterActivity
-import com.example.friendlygram.utitits.AUTH
-import com.example.friendlygram.utitits.replaceActivity
-import com.example.friendlygram.utitits.replaceFragment
-import com.example.friendlygram.utitits.showToast
+import com.example.friendlygram.utitits.*
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -61,7 +58,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
           mPhoneNumber,
             60,
             TimeUnit.SECONDS,
-            activity as RegisterActivity,
+            APP_ACTIVITY,
             mCallback
         )
     }

@@ -1,15 +1,15 @@
 package com.example.friendlygram.ui.fragments
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
 import com.example.friendlygram.activities.RegisterActivity
-import com.example.friendlygram.utitits.AUTH
-import com.example.friendlygram.utitits.USER
-import com.example.friendlygram.utitits.replaceActivity
-import com.example.friendlygram.utitits.replaceFragment
+import com.example.friendlygram.utitits.*
+import com.theartofdev.edmodo.cropper.CropImage
+import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
 
 
@@ -32,21 +32,41 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
         settings_username.text = USER.username
         settings_btn_change_username.setOnClickListener { replaceFragment(ChangeUsernameFragment()) }
         settings_btn_change_bio.setOnClickListener { replaceFragment(ChangeBioFragment()) }
+        settings_change_photo.setOnClickListener { changePhotoUser() }
 
     }
 
+    private fun changePhotoUser() {
+        CropImage.activity()
+            .setAspectRatio(1,1)
+            .setRequestedSize(600,600)
+            .setCropShape(CropImageView.CropShape.OVAL)
+            .start((APP_ACTIVITY))
+            .setResult(RESULT_OK)
+
+
+    }
+
+
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         activity?.menuInflater?.inflate(R.menu.settings_action_menu, menu)
+
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId){
             R.id.settings_menu_exit -> {
                 AUTH.signOut()
-                (activity as MainActivity).replaceActivity(RegisterActivity())
+                (APP_ACTIVITY).replaceActivity(RegisterActivity())
             }
             R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
         return true
     }
+}
+
+private fun Any.setResult(resultOk: Int) {
+
 }
