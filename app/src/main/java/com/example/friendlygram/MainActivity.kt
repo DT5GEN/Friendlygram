@@ -15,6 +15,10 @@ import com.example.friendlygram.ui.fragments.ChatFragment
 import com.example.friendlygram.ui.objects.AppDrawer
 import com.example.friendlygram.utitits.*
 import com.theartofdev.edmodo.cropper.CropImage
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mToolbar: Toolbar
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
@@ -34,8 +37,10 @@ class MainActivity : AppCompatActivity() {
         APP_ACTIVITY = this
         initFirebase()
         initUser {
+            CoroutineScope(Dispatchers.IO).launch {
+                initContacts()
+            }
 
-            initContacts()
             initFields()
             initFunc()
         }
@@ -43,15 +48,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initContacts() {
-        if(checkPermission(READ_CONTACTS)){
-            showToast("Чтение контактов")
+        if (checkPermission(READ_CONTACTS)) {
+            val array = arrayOfNulls<Int>(900000)
+                        array.forEach { println(it) }
         }
     }
 
 
     private fun initFunc() {
 
-        if(AUTH.currentUser!=null){
+        if (AUTH.currentUser != null) {
 
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
@@ -69,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
-        mAppDrawer = AppDrawer(this,mToolbar)
+        mAppDrawer = AppDrawer(this, mToolbar)
 
     }
 
@@ -77,7 +83,6 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         AppStates.updateState(AppStates.ONLINE)
     }
-
 
 
     override fun onStop() {
@@ -91,7 +96,11 @@ class MainActivity : AppCompatActivity() {
         grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (ContextCompat.checkSelfPermission(APP_ACTIVITY, READ_CONTACTS)==PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(
+                APP_ACTIVITY,
+                READ_CONTACTS
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
             initContacts()
         }
     }
