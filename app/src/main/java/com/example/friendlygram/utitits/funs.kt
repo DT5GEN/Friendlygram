@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
+import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
@@ -65,4 +66,11 @@ fun ImageView.downloadAndSetImage(url:String){
         .fit()
         .placeholder(R.drawable.default_photo)
         .into(this)
+}
+
+fun restartActivity() {
+
+    val intent = Intent(APP_ACTIVITY, MainActivity::class.java)
+    APP_ACTIVITY.startActivity(intent)
+    APP_ACTIVITY.finish()
 }

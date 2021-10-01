@@ -14,6 +14,9 @@
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_contacts.xml" value="0.21891891891891893" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_enter_phone_number.xml" value="0.18716216216216217" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_settings.xml" value="0.18716216216216217" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_single_chat.xml" value="0.14222972972972972" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/message_item.xml" value="0.14222972972972972" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/toolbar_info.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/menu/settings_action_menu.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/menu/settings_menu_confirm.xml" value="0.16666666666666666" />
       </map>
