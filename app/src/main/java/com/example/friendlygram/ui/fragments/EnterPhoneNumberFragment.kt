@@ -24,7 +24,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
                 AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
                     if (task.isSuccessful){
                         showToast("Добро пожаловать")
-                        (activity as RegisterActivity).replaceActivity(MainActivity())
+                        (APP_ACTIVITY).replaceActivity(MainActivity())
                     } else showToast(task.exception?.message.toString())
 
                 }
