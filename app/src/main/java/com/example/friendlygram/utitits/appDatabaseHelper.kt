@@ -74,54 +74,9 @@ inline fun initUser(crossinline function: () -> Unit) {
 }
 
 
-fun initContacts() {
-    if (checkPermission(READ_CONTACTS)) {
-        val arrayContacts = arrayListOf<CommonModel>()
-        val cursor = APP_ACTIVITY.contentResolver.query(
-            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-            null,
-            null,
-            null,
-            null
-        )
-        cursor?.let { it ->
-            while (it.moveToNext()) {
-                val fullName =
-                    it.getString(it.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME))
-                val phone =
-                    it.getString(it.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
-                val newModel = CommonModel()
-                newModel.fullname = fullName
-                if (phone.isNotEmpty()) {
-                    newModel.phone = "+" + phone.filter { it.isDigit() }
-//                    newModel.phone = phone.replace(Regex("[\\s,-]"),"")
-                    arrayContacts.add(newModel)
-                }
 
-            }
-        }
-        cursor?.close()
-        updatePhonesToDatabase(arrayContacts)
 
-    }
-}
 
-fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
-    REF_DATABASE_ROOT.child(NODE_PHONES)
-        .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
-            dataSnapshot.children.forEach { snapshot ->
-                arrayContacts.forEach { contact ->
-                    if (snapshot.key == contact.phone) {
-                        REF_DATABASE_ROOT.child(NODE_PHONES_CONTACTS).child(CURRENT_UID)
-                            .child(snapshot.value.toString()).child(CHILD_ID)
-                            .setValue(snapshot.value.toString())
-                            .addOnFailureListener { showToast(it.message.toString()) }
-                    }
-                }
-            }
-        })
-
-}
 
 fun DataSnapshot.getCommonModel(): CommonModel =
     this.getValue(CommonModel::class.java) ?: CommonModel()

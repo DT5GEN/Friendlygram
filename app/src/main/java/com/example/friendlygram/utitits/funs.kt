@@ -2,6 +2,7 @@ package com.example.friendlygram.utitits
 
 import android.content.Context
 import android.content.Intent
+import android.provider.ContactsContract
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.Toast
@@ -9,38 +10,38 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
+import com.example.friendlygram.models.CommonModel
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.fragment_settings.*
 
-fun showToast( message:String){
-    Toast.makeText(APP_ACTIVITY,message,Toast.LENGTH_SHORT).show()
+fun showToast(message: String) {
+    Toast.makeText(APP_ACTIVITY, message, Toast.LENGTH_SHORT).show()
 }
 
-fun AppCompatActivity.replaceActivity(activity: AppCompatActivity){
-    val intent = Intent(this,activity::class.java)
+fun AppCompatActivity.replaceActivity(activity: AppCompatActivity) {
+    val intent = Intent(this, activity::class.java)
     startActivity(intent)
     this.finish()
 
 }
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment,  addStack:Boolean = true){
-        if (addStack){
-            supportFragmentManager.beginTransaction()
-                .addToBackStack(null)
-                .replace(R.id.data_container, fragment).commit()
+fun AppCompatActivity.replaceFragment(fragment: Fragment, addStack: Boolean = true) {
+    if (addStack) {
+        supportFragmentManager.beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.data_container, fragment).commit()
 
-        } else {
+    } else {
 
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.data_container, fragment).commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.data_container, fragment).commit()
 
 
-        }
+    }
 
 
 }
 
-fun Fragment.replaceFragment(fragment: Fragment){
+fun Fragment.replaceFragment(fragment: Fragment) {
 
     this.activity?.supportFragmentManager?.beginTransaction()
         ?.addToBackStack(null)
@@ -49,12 +50,13 @@ fun Fragment.replaceFragment(fragment: Fragment){
 
 }
 
-fun hideKeyboard(){
-    val imm: InputMethodManager = APP_ACTIVITY.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-    imm.hideSoftInputFromWindow(APP_ACTIVITY.window.decorView.windowToken,0)
+fun hideKeyboard() {
+    val imm: InputMethodManager =
+        APP_ACTIVITY.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(APP_ACTIVITY.window.decorView.windowToken, 0)
 }
 
-fun ImageView.downloadAndSetImage(url:String){
+fun ImageView.downloadAndSetImage(url: String) {
     Picasso.get()
         .load(url)
         .fit()
@@ -67,4 +69,69 @@ fun restartActivity() {
     val intent = Intent(APP_ACTIVITY, MainActivity::class.java)
     APP_ACTIVITY.startActivity(intent)
     APP_ACTIVITY.finish()
+}
+
+
+fun initContacts() {
+    if (checkPermission(READ_CONTACTS)) {
+        val arrayContacts = arrayListOf<CommonModel>()
+        val cursor = APP_ACTIVITY.contentResolver.query(
+            ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+            null,
+            null,
+            null,
+            null
+        )
+        cursor?.let { it ->
+            while (it.moveToNext()) {
+                val fullName =
+                    it.getString(it.getColumnIndexOrThrow(ContactsContract.Contacts.DISPLAY_NAME))
+                val phone =
+                    it.getString(it.getColumnIndexOrThrow(ContactsContract.CommonDataKinds.Phone.NUMBER))
+                val newModel = CommonModel()
+                newModel.fullname = fullName
+                if (phone.isNotEmpty()) {
+                    newModel.phone = "+" + phone.filter { it.isDigit() }
+//                    newModel.phone = phone.replace(Regex("[\\s,-]"),"")
+                    arrayContacts.add(newModel)
+                }
+
+            }
+        }
+        cursor?.close()
+        updatePhonesToDatabase(arrayContacts)
+
+    }
+}
+
+
+fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
+
+    if (AUTH.currentUser!=null){
+
+        REF_DATABASE_ROOT.child(NODE_PHONES)
+            .addListenerForSingleValueEvent(AppValueEventListener { dataSnapshot ->
+                dataSnapshot.children.forEach { snapshot ->
+                    arrayContacts.forEach { contact ->
+                        if (snapshot.key == contact.phone) {
+
+
+                            REF_DATABASE_ROOT.child(NODE_PHONES_CONTACTS).child(CURRENT_UID)
+                                .child(snapshot.value.toString()).child(CHILD_ID)
+                                .setValue(snapshot.value.toString())
+                                .addOnFailureListener { showToast(it.message.toString()) }
+
+                            REF_DATABASE_ROOT.child(NODE_PHONES_CONTACTS).child(CURRENT_UID)
+                                .child(snapshot.value.toString()).child(CHILD_FULLNAME)
+                                .setValue(contact.fullname)
+                                .addOnFailureListener { showToast(it.message.toString()) }
+                        }
+                    }
+                }
+            })
+
+    }
+
+
+
 }
