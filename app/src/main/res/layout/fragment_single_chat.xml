@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/chat_input_message"
+        tools:listitem="@layout/message_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,6 +28,7 @@
         android:padding="@dimen/appPadding"
         android:textColor="@color/colorBlack"
         android:textColorHint="@color/colorGrey"
+        app:layout_constraintEnd_toStartOf="@id/imageView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

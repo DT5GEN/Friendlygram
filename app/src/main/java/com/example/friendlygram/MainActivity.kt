@@ -1,23 +1,17 @@
 package com.example.friendlygram
 
-import android.content.Context
-import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import com.example.friendlygram.activities.RegisterActivity
 import com.example.friendlygram.databinding.ActivityMainBinding
-import com.example.friendlygram.models.User
 import com.example.friendlygram.ui.fragments.ChatFragment
 import com.example.friendlygram.ui.objects.AppDrawer
 import com.example.friendlygram.utitits.*
-import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {

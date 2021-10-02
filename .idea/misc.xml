@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/bg_chat.xml" value="0.1527027027027027" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/bg_receiving_message.xml" value="0.15117056856187291" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/bg_user_message.xml" value="0.15117056856187291" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/drawable/ic_confirm_change.xml" value="0.1" />
@@ -17,7 +18,7 @@
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_enter_phone_number.xml" value="0.18716216216216217" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_settings.xml" value="0.18716216216216217" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/fragment_single_chat.xml" value="0.14222972972972972" />
-        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/message_item.xml" value="0.14" />
+        <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/message_item.xml" value="0.2" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/layout/toolbar_info.xml" value="0.33" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/menu/settings_action_menu.xml" value="0.1" />
         <entry key="..\:/AndroidStudioProjects/Friendlygram/app/src/main/res/menu/settings_menu_confirm.xml" value="0.16666666666666666" />
