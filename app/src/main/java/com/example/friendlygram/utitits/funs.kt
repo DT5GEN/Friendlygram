@@ -12,6 +12,9 @@ import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
 import com.example.friendlygram.models.CommonModel
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 fun showToast(message: String) {
     Toast.makeText(APP_ACTIVITY, message, Toast.LENGTH_SHORT).show()
@@ -134,4 +137,10 @@ fun updatePhonesToDatabase(arrayContacts: ArrayList<CommonModel>) {
 
 
 
+}
+
+ fun String.asTime(): String {
+    val time = Date(this.toLong())
+    val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+    return timeFormat.format(time)
 }
