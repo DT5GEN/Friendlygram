@@ -1,13 +1,16 @@
 package com.example.friendlygram
 
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import com.example.friendlygram.activities.RegisterActivity
+import com.example.friendlygram.database.AUTH
+import com.example.friendlygram.database.initFirebase
+import com.example.friendlygram.database.initUser
 import com.example.friendlygram.databinding.ActivityMainBinding
-import com.example.friendlygram.ui.fragments.ChatFragment
+import com.example.friendlygram.ui.fragments.MainFragment
+import com.example.friendlygram.ui.fragments.register.EnterPhoneNumberFragment
 import com.example.friendlygram.ui.objects.AppDrawer
 import com.example.friendlygram.utitits.*
 import kotlinx.coroutines.CoroutineScope
@@ -20,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mAppDrawer: AppDrawer
 
-     lateinit var mToolbar: Toolbar
+    lateinit var mToolbar: Toolbar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,23 +45,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun initFunc() {
+        setSupportActionBar(mToolbar)
 
         if (AUTH.currentUser != null) {
-
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
-            replaceFragment(ChatFragment(), false)
-
-
+            replaceFragment(MainFragment(), false)
         } else {
-            replaceActivity(RegisterActivity())
-
+            replaceFragment(EnterPhoneNumberFragment(), false)
         }
-
-
     }
 
 

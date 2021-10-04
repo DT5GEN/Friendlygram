@@ -2,17 +2,12 @@ package com.example.friendlygram.ui.fragments
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.net.Uri
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import com.example.friendlygram.R
-import com.example.friendlygram.activities.RegisterActivity
+import com.example.friendlygram.database.*
 import com.example.friendlygram.utitits.*
-import com.google.firebase.storage.StorageReference
-import com.squareup.picasso.Picasso
 import com.theartofdev.edmodo.cropper.CropImage
 import com.theartofdev.edmodo.cropper.CropImageView
 import kotlinx.android.synthetic.main.fragment_settings.*
@@ -92,16 +87,12 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             .setCropShape(CropImageView.CropShape.OVAL)
             .start(APP_ACTIVITY,this)
 
-
-
     }
 
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         activity?.menuInflater?.inflate(R.menu.settings_action_menu, menu)
-
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -109,7 +100,7 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             R.id.settings_menu_exit -> {
                 AppStates.updateState(AppStates.OFFLINE)
                 AUTH.signOut()
-                APP_ACTIVITY.replaceActivity(RegisterActivity())
+                restartActivity()
             }
             R.id.settings_menu_change_name -> replaceFragment(ChangeNameFragment())
         }
@@ -135,10 +126,4 @@ class SettingsFragment : BaseFragment(R.layout.fragment_settings) {
             }
         }
     }
-
-
-
-
-
-
 }

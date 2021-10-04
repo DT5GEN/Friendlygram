@@ -1,5 +1,7 @@
 package com.example.friendlygram.utitits
 
+import com.example.friendlygram.database.*
+
 enum class AppStates (val state: String){
     ONLINE("в сети"),
     OFFLINE("был недавно"),

@@ -5,16 +5,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.friendlygram.R
 import com.example.friendlygram.models.CommonModel
-import com.example.friendlygram.utitits.CURRENT_UID
+import com.example.friendlygram.database.CURRENT_UID
+import com.example.friendlygram.utitits.DiffUtilCallback
 import com.example.friendlygram.utitits.asTime
 import kotlinx.android.synthetic.main.message_item.view.*
 
-private var mListMessagesCache = emptyList<CommonModel>()
 
 class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolder>() {
+
+    private var mListMessagesCache = emptyList<CommonModel>()
+    private lateinit var mDiffResult: DiffUtil.DiffResult
 
 
     class SingleChatHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -41,7 +45,7 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
             holder.chatUserMessage.text = mListMessagesCache[position].text
             holder.chatUserMessageTime.text =
                 mListMessagesCache[position].timeStamp.toString().asTime()
-        }  else {
+        } else {
 
 
             holder.blockUserMessage.visibility = View.GONE
@@ -56,13 +60,18 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
 
     override fun getItemCount(): Int = mListMessagesCache.size
 
-    fun setList(list: List<CommonModel>) {
-        mListMessagesCache = list
-        notifyDataSetChanged()
 
-}
+    fun addItem(item: CommonModel) {
+        val newList = mutableListOf<CommonModel>()
+        newList.addAll(mListMessagesCache)
 
+        if (!newList.contains(item)) newList.add(item)
 
+        newList.sortBy { it.timeStamp.toString() }
+        mDiffResult = DiffUtil.calculateDiff(DiffUtilCallback(mListMessagesCache, newList))
+        mDiffResult.dispatchUpdatesTo(this)
+        mListMessagesCache = newList
+    }
 
 
 }

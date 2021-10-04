@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.friendlygram.R
+import com.example.friendlygram.database.*
 import com.example.friendlygram.models.CommonModel
 import com.example.friendlygram.ui.fragments.single_chat.SingleChatFragment
 import com.example.friendlygram.utitits.*
@@ -30,6 +31,7 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
         super.onResume()
         APP_ACTIVITY.title = "Контакты"
         initRecycleView()
+        hideKeyboard()
     }
 
     private fun initRecycleView() {
