@@ -19,7 +19,7 @@
     <TextView
         android:id="@+id/contact_fullname"
         style="@style/normalText"
-        android:text="Durel Durov"
+        android:text=" "
         app:layout_constraintStart_toEndOf="@id/contact_photo"
         app:layout_constraintTop_toTopOf="parent" />
 
