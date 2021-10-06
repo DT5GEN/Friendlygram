@@ -18,6 +18,7 @@
     <dimen name="settings_ripple_effect_radius">4dp</dimen>
     <dimen name="appPadding">10dp</dimen>
     <dimen name="message_user_start">120dp</dimen>
+    <dimen name="chat_image_width">250dp</dimen>
 
 
 </resources>

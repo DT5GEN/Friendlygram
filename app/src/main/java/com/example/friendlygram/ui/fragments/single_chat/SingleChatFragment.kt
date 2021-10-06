@@ -50,27 +50,27 @@ class SingleChatFragment(private val contact: CommonModel) :
     private fun initFields() {
         mSwipeRefreshLayout = chat_swipe_refresh
         mLayoutManager = LinearLayoutManager(this.context)
-        chat_input_message.addTextChangedListener(AppTextWatcher{
+        chat_input_message.addTextChangedListener(AppTextWatcher {
             val string = chat_input_message.text.toString()
-            if (string.isEmpty()){
+            if (string.isEmpty()) {
                 chat_btn_send_message.visibility = View.GONE
                 chat_btn_attach.visibility = View.VISIBLE
-            }   else {
+            } else {
                 chat_btn_send_message.visibility = View.VISIBLE
                 chat_btn_attach.visibility = View.GONE
             }
         })
-        chat_btn_attach.setOnClickListener{
+        chat_btn_attach.setOnClickListener {
             attachFile()
         }
     }
 
     private fun attachFile() {
         CropImage.activity()
-            .setAspectRatio(1,1)
-            .setRequestedSize(600,600)
+            .setAspectRatio(1, 1)
+            .setRequestedSize(600, 600)
             .setCropShape(CropImageView.CropShape.OVAL)
-            .start(APP_ACTIVITY,this)
+            .start(APP_ACTIVITY, this)
 
     }
 
@@ -167,7 +167,7 @@ class SingleChatFragment(private val contact: CommonModel) :
         mToolbarInfo.toolbar_chat_status.text = mReceivingUser.state
     }
 
-       override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK && data != null) {
             val uri = CropImage.getActivityResult(data).uri
@@ -178,9 +178,8 @@ class SingleChatFragment(private val contact: CommonModel) :
 
             putImageToStorage(uri, path) {
                 getUrlToStorage(path) {
-sendMessageAsImage(contact.id,it,messageKey)
-
-
+                                      sendMessageAsImage(contact.id, it, messageKey)
+                    mSmoothScrollToPosition = true
                 }
             }
         }
@@ -193,7 +192,6 @@ sendMessageAsImage(contact.id,it,messageKey)
         mRefUser.removeEventListener(mListenerInfoToolbar)
         mRefMessages.removeEventListener(mMessagesListener)
     }
-
 
 
 }
