@@ -2,6 +2,7 @@ package com.example.friendlygram.ui.fragments
 
 
 import com.example.friendlygram.R
+import com.example.friendlygram.database.*
 import com.example.friendlygram.utitits.*
 import kotlinx.android.synthetic.main.fragment_change_name.*
 
@@ -30,16 +31,7 @@ class ChangeNameFragment : BaseChangeFragment(R.layout.fragment_change_name) {
 
         } else {
             val fullname = "$name $surname"
-            REF_DATABASE_ROOT.child(NODE_USERS).child(CURRENT_UID).child(CHILD_FULLNAME)
-                .setValue(fullname).addOnCompleteListener {
-                    if (it.isSuccessful) {
-                        showToast(getString(R.string.toast_data_update))
-                        USER.fullname = fullname
-                        APP_ACTIVITY.mAppDrawer.updateHeader()
-                        fragmentManager?.popBackStack()
-
-                    }
-                }
+            setNameToDatabase(fullname)
         }
     }
 }

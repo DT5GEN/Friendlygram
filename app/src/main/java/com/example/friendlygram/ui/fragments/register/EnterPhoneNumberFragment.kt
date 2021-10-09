@@ -1,9 +1,8 @@
-package com.example.friendlygram.ui.fragments
+package com.example.friendlygram.ui.fragments.register
 
 import androidx.fragment.app.Fragment
-import com.example.friendlygram.MainActivity
 import com.example.friendlygram.R
-import com.example.friendlygram.activities.RegisterActivity
+import com.example.friendlygram.database.AUTH
 import com.example.friendlygram.utitits.*
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
@@ -24,7 +23,7 @@ class EnterPhoneNumberFragment : Fragment(R.layout.fragment_enter_phone_number) 
                 AUTH.signInWithCredential(credential).addOnCompleteListener { task ->
                     if (task.isSuccessful){
                         showToast("Добро пожаловать")
-                        (activity as RegisterActivity).replaceActivity(MainActivity())
+                        restartActivity()
                     } else showToast(task.exception?.message.toString())
 
                 }
