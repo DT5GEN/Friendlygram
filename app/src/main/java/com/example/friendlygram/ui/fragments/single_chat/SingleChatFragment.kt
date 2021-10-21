@@ -2,8 +2,10 @@ package com.example.friendlygram.ui.fragments.single_chat
 
 import android.app.Activity
 import android.content.Intent
+import android.view.MotionEvent
 import android.view.View
 import android.widget.AbsListView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -20,6 +22,9 @@ import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_settings.*
 import kotlinx.android.synthetic.main.fragment_single_chat.*
 import kotlinx.android.synthetic.main.toolbar_info.view.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 class SingleChatFragment(private val contact: CommonModel) :
@@ -52,17 +57,40 @@ class SingleChatFragment(private val contact: CommonModel) :
         mLayoutManager = LinearLayoutManager(this.context)
         chat_input_message.addTextChangedListener(AppTextWatcher {
             val string = chat_input_message.text.toString()
-            if (string.isEmpty()) {
+            if (string.isEmpty() || string == "Запись голосового сообщения") {
                 chat_btn_send_message.visibility = View.GONE
                 chat_btn_attach.visibility = View.VISIBLE
+                chat_btn_voice.visibility = View.VISIBLE
             } else {
                 chat_btn_send_message.visibility = View.VISIBLE
                 chat_btn_attach.visibility = View.GONE
+                chat_btn_voice.visibility = View.GONE
             }
         })
-        chat_btn_attach.setOnClickListener {
-            attachFile()
+        chat_btn_attach.setOnClickListener {  attachFile() }
+
+        CoroutineScope(Dispatchers.IO).launch {
+
+            chat_btn_voice.setOnTouchListener { v, motionEvent ->
+                if (checkPermission(RECORD_AUDIO)){
+                    if (motionEvent.action == MotionEvent.ACTION_DOWN){
+                        // TODO Record voice message
+                        chat_input_message.setText("Запись голосового сообщения")
+                        chat_btn_voice.setColorFilter(ContextCompat.getColor(APP_ACTIVITY, R.color.md_red_500))
+                    } else if (motionEvent.action == MotionEvent.ACTION_UP){
+                        // TODO Stop recording voice message
+
+                        chat_input_message.setText("")
+                        chat_btn_voice.colorFilter = null
+                    }
+                }
+
+                true
+            }
+
         }
+
+
     }
 
     private fun attachFile() {
