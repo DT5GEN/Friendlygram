@@ -57,7 +57,7 @@ class SingleChatFragment(private val contact: CommonModel) :
         mLayoutManager = LinearLayoutManager(this.context)
         chat_input_message.addTextChangedListener(AppTextWatcher {
             val string = chat_input_message.text.toString()
-            if (string.isEmpty() || string == "Запись голосового сообщения") {
+            if (string.isEmpty() || string == "Запись сообщения") {
                 chat_btn_send_message.visibility = View.GONE
                 chat_btn_attach.visibility = View.VISIBLE
                 chat_btn_voice.visibility = View.VISIBLE
