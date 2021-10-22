@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.friendlygram.R
 import com.example.friendlygram.models.CommonModel
@@ -59,13 +58,13 @@ class SingleChatAdapter : RecyclerView.Adapter<SingleChatAdapter.SingleChatHolde
         if (mListMessagesCache[position].from == CURRENT_UID) {
             holder.blockUserImageMessage.visibility = View.VISIBLE
             holder.blockReceivedImageMessage.visibility = View.GONE
-            holder.chatUserImage.downloadAndSetImage(mListMessagesCache[position].imageUrl)
+            holder.chatUserImage.downloadAndSetImage(mListMessagesCache[position].fileUrl)
             holder.chatUserImageTime.text =
                 mListMessagesCache[position].timeStamp.toString().asTime()
         } else {
             holder.blockUserImageMessage.visibility = View.GONE
             holder.blockReceivedImageMessage.visibility = View.VISIBLE
-            holder.chatReceivedImage.downloadAndSetImage(mListMessagesCache[position].imageUrl)
+            holder.chatReceivedImage.downloadAndSetImage(mListMessagesCache[position].fileUrl)
             holder.chatReceivedImageTime.text =
                 mListMessagesCache[position].timeStamp.toString().asTime()
         }
