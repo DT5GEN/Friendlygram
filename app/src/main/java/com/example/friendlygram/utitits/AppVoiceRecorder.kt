@@ -1,13 +1,10 @@
 package com.example.friendlygram.utitits
 
 import android.media.MediaRecorder
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import java.io.File
 
 class AppVoiceRecorder {
-    companion object{
+
 
         private val mMediaRecorder = MediaRecorder()
         private lateinit var mFile:File
@@ -51,6 +48,7 @@ class AppVoiceRecorder {
 
             } catch (e:Exception){
                 showToast(e.message.toString())
+                mFile.delete()
             }
 
 
@@ -67,4 +65,3 @@ class AppVoiceRecorder {
         }
 
     }
-}

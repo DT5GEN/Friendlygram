@@ -71,25 +71,29 @@ class SingleChatFragment(private val contact: CommonModel) :
                 chat_btn_voice.visibility = View.GONE
             }
         })
-        chat_btn_attach.setOnClickListener {  attachFile() }
+        chat_btn_attach.setOnClickListener { attachFile() }
 
         CoroutineScope(Dispatchers.IO).launch {
 
             chat_btn_voice.setOnTouchListener { v, motionEvent ->
-                if (checkPermission(RECORD_AUDIO)){
-                    if (motionEvent.action == MotionEvent.ACTION_DOWN){
-                        // TODO Record voice message
+                if (checkPermission(RECORD_AUDIO)) {
+                    if (motionEvent.action == MotionEvent.ACTION_DOWN) {
                         chat_input_message.setText("Запись голосового сообщения")
-                        chat_btn_voice.setColorFilter(ContextCompat.getColor(APP_ACTIVITY, R.color.md_red_500))
+                        chat_btn_voice.setColorFilter(
+                            ContextCompat.getColor(
+                                APP_ACTIVITY,
+                                R.color.md_red_500
+                            )
+                        )
                         val messageKey = getMessageKey(contact.id)
                         mAppVoiceRecorder.startRecord(messageKey)
 
-                    } else if (motionEvent.action == MotionEvent.ACTION_UP){
-                        // TODO Stop recording voice message
+                    } else if (motionEvent.action == MotionEvent.ACTION_UP) {
+
 
                         chat_input_message.setText("")
                         chat_btn_voice.colorFilter = null
-                        mAppVoiceRecorder.stopRecord{ file, messageKey ->
+                        mAppVoiceRecorder.stopRecord { file, messageKey ->
                             uploadFileToStorage(Uri.fromFile(file), messageKey)
                         }
                     }
@@ -102,7 +106,6 @@ class SingleChatFragment(private val contact: CommonModel) :
 
 
     }
-
 
 
     private fun attachFile() {
@@ -217,13 +220,12 @@ class SingleChatFragment(private val contact: CommonModel) :
 
             putImageToStorage(uri, path) {
                 getUrlToStorage(path) {
-                                      sendMessageAsImage(contact.id, it, messageKey)
+                    sendMessageAsImage(contact.id, it, messageKey)
                     mSmoothScrollToPosition = true
                 }
             }
         }
     }
-
 
 
     override fun onPause() {
