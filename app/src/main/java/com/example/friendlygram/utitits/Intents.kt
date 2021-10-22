@@ -3,7 +3,7 @@ package com.example.friendlygram.utitits
 import android.app.Activity
 import android.net.Uri
 import android.view.View
-import androidx.activity.result.ActivityResult
+//import androidx.activity.result.ActivityResult
 import com.example.friendlygram.MainActivity
 
 //class Intents(
